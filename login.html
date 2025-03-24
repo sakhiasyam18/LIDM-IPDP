@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url(bghijaudaunkanan.jpg) no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: inline-block;
+            width: 40px;
+            vertical-align: top;
+        }
+
+        .input-group input {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .input-group input[type="password"] {
+            margin-left: 10px;
+        }
+
+        .register {
+            margin: 10px 0;
+            color: #00f;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #00f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0000cc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://example.com/bird-logo.png" alt="Logo" class="logo">
+        <h1>SELAMAT DATANG</h1>
+        <div class="input-group">
+            <label><img src="https://example.com/user-icon.png" alt="User" width="20"></label>
+            <input type="email" placeholder="Email">
+        </div>
+        <div class="input-group">
+            <label><img src="https://example.com/lock-icon.png" alt="Lock" width="20"></label>
+            <input type="password" placeholder="Password">
+        </div>
+        <div class="register">Belum Punya Akun? Daftar</div>
+        <button onclick="login()">MASUK</button>
+    </div>
+
+    <script>
+        function login() {
+            alert("Login berhasil!");
+        }
+    </script>
+</body>
+
+</html>
