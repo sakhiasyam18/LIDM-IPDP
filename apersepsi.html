@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apersepsi - BIOVERS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dan Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bgkupukupu.jpg'); /* Latar belakang dari aset yang ada */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container utama yang menyerupai tampilan mobile */
+        .mobile-container {
+            width: 100%;
+            max-width: 420px; /* Lebar umum untuk tampilan mobile */
+            height: 100vh;
+            max-height: 800px;
+            background-color: rgba(14, 63, 33, 0.9); /* Overlay hijau tua agar teks terbaca */
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        header h1 {
+            flex-grow: 1;
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff; /* Warna putih untuk judul Apersepsi */
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        header .icon {
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        header .icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 18px; /* Jarak antara ikon */
+        }
+
+        /* Konten Utama */
+        main {
+            padding: 10px 20px 20px 20px;

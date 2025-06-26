@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membimbing Penyelidikan - BIOVERS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dan Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bgkupukupu.jpg'); /* Latar belakang dengan kupu-kupu */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container utama yang menyerupai tampilan mobile */
+        .mobile-container {
+            width: 100%;
+            max-width: 420px; /* Lebar umum untuk tampilan mobile */
+            height: 100vh;
+            max-height: 800px;
+            background-color: rgba(14, 63, 33, 0.95); /* Overlay hijau tua agar teks terbaca */
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 20px 20px 15px 20px;
+            flex-shrink: 0;
+            gap: 15px;
+        }
+
+        header h1 {
+            flex-grow: 1;
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFEB3B; /* Warna kuning cerah sesuai gambar */
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        header .icon {
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        header .icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Konten Utama */
+        main {
+            padding: 0 20px 20px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Jarak antara kotak instruksi dan daftar aksi */
+            overflow-y: auto; /* Memungkinkan scroll jika konten melebihi layar */
+        }
+        
+        /* Custom scrollbar styling */
+        main::-webkit-scrollbar {
+          width: 5px;
+        }
+        main::-webkit-scrollbar-thumb {
+          background: #FFEB3B;
+          border-radius: 10px;
+        }
+        main::-webkit-scrollbar-track {
+          background: rgba(0,0,0,0.1);
+        }
+
+        .instruction-box {
+            background-color: rgba(47, 97, 60, 0.85); /* Warna hijau dari gambar */
+            color: #E2EAB9; /* Warna teks kekuningan dari gambar */
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .instruction-box ul {
+            list-style: none; /* Menghilangkan bullet point default */
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Jarak antar poin */
+        }
+        
+        .instruction-box li {
+            padding-left: 1.2em;
+            text-indent: -1.2em;
+        }
+
+        .instruction-box li::before {
+            content: "-";
+            padding-right: 0.5em;
+        }
+
+        /* Daftar Aksi (Tombol-tombol) */
+        .action-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgba(30, 80, 45, 0.9); /* Warna dasar tombol */
+            padding: 12px 15px;
+            border-radius: 50px; /* Membuat bentuk pil */
+            color: #E2EAB9;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .action-item:hover {
+            background-color: rgba(47, 97, 60, 1);
+            transform: scale(1.03);
+        }
+
+        .action-item .left-icon {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .action-item span {
+            flex-grow: 1;
+        }
+
+        .right-icon-wrapper {
+            background-color: #FFC107; /* Warna kuning pada lingkaran */
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .right-icon-wrapper .right-icon {
+            font-size: 16px;
+            color: #333; /* Warna ikon hitam/gelap */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        <header>
+            <i class="fas fa-arrow-left icon"></i>
+            <h1>Membimbing Penyelidikan<br>Individual maupun Kelompok</h1>
+        </header>
+
+        <main>
+            <div class="instruction-box">
+                <ul>
+                    <li>Diskusikanlah dengan teman sekelompok mengenai permasalahan yang diperoleh.</li>
+                    <li>Lakukanlah kegiatan observasi, dan/atau wawancara, dan/atau survei untuk mengumpulkan informasi atau data untuk menyelesaikan permasalahan yang didapat.</li>
+                    <li>Kumpulkan hasil kegiatan pengumpulan data pada kolom yang disediakan.</li>
+                    <li>Berdasarkan data yang diperoleh dari kegiatan observasi dan/wawancara dan/survei tulislah solusi dari permasalahan yang didapat</li>
+                </ul>
+            </div>
+
+            <div class="action-list">
+                <div class="action-item">
+                    <i class="fas fa-file-alt left-icon"></i>
+                    <span>Unduh Lembar Pengerjaan</span>
+                    <div class="right-icon-wrapper">
+                        <i class="fas fa-download right-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="action-item">
+                    <i class="fas fa-file-signature left-icon"></i>
+                    <span>Pengumpulan Lembar Observasi</span>
+                    <div class="right-icon-wrapper">
+                        <i class="fas fa-cloud-arrow-up right-icon"></i>
+                    </div>
+                </div>
+
+                <div class="action-item">
+                    <i class="fas fa-users left-icon"></i>
+                    <span>Pengumpulan Lembar Wawancara</span>
+                    <div class="right-icon-wrapper">
+                        <i class="fas fa-cloud-arrow-up right-icon"></i>
+                    </div>
+                </div>
+
+                <div class="action-item">
+                    <i class="fas fa-poll-h left-icon"></i>
+                    <span>Pengumpulan Hasil Survei</span>
+                    <div class="right-icon-wrapper">
+                        <i class="fas fa-cloud-arrow-up right-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
