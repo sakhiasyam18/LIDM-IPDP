@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Biodictionary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bgkupukupu.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .dictionary-container {
+            width: 100%;
+            max-width: 420px;
+            background-color: rgba(14, 63, 33, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+        header h1 {
+            font-size: 24px;
+            flex-grow: 1;
+            text-align: center;
+            margin-left: 30px;
+        }
+        header .icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .search-area {
+            background-color: rgba(47, 97, 60, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        #search-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            border: 2px solid #FFC107;
+            font-size: 16px;
+            background-color: white;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        #search-button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            border: none;
+            background-color: #176B87;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #search-button:hover {
+            background-color: #1f85a1;
+        }
+        .result-area {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            color: #E2EAB9;
+            min-height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 16px;
+        }
+        #result-text {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="dictionary-container">
+        <header>
+            <i class="fas fa-arrow-left icon" onclick="history.back()"></i>
+            <h1>e-Biodictionary</h1>
+            <i class="fas fa-user-circle icon"></i>
+        </header>
+        <div class="search-area">
+            <input type="text" id="search-input" placeholder="Masukkan kata kunci...">
+            <button id="search-button">Tampilkan Artinya</button>
+        </div>
+        <div class="result-area">
+            <p id="result-text">Masukkan kata yang ingin dicari artinya.</p>
+        </div>
+    </div>
+
+    <script>
+        const dictionaryData = {
+            "hayati": "Berhubungan dengan hidup atau kehidupan.",
+            "ekosistem": "Keadaan khusus tempat komunitas suatu organisme hidup dan komponen tak hidup dari suatu lingkungan yang saling berinteraksi. (Rusdiana, 2015)",
+            "biodiversitas": "Variasi atau keanekaragaman makhluk hidup dari berbagai sumber, termasuk daratan, lautan, dan ekosistem akuatik lainnya.",
+            "flora": "Keseluruhan jenis tumbuhan yang hidup di suatu daerah atau habitat tertentu.",
+            "fauna": "Keseluruhan jenis hewan yang hidup di suatu daerah atau habitat tertentu.",
+            "gen": "Substansi kimia sebagai faktor penentu sifat keturunan yang terdapat dalam lokus kromosom.",
+            "spesies": "Individu yang mempunyai persamaan morfologis, anatomis, dan fisiologis serta mampu melakukan perkawinan untuk menghasilkan keturunan yang subur."
+        };
+
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const resultText = document.getElementById('result-text');
+
+        searchButton.addEventListener('click', () => {
+            const query = searchInput.value.toLowerCase().trim();
+            if (query in dictionaryData) {
+                resultText.textContent = dictionaryData[query];
+            } else if (query === "") {
+                resultText.textContent = "Silakan masukkan kata yang ingin dicari.";
+            } else {
+                resultText.textContent = `Definisi untuk kata '${query}' tidak ditemukan.`;
+            }
+        });
+    </script>
+</body>
+</html>

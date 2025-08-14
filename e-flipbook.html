@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-Flipbook - Keanekaragaman Hayati</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bgkupukupu.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+        .flipbook-container {
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(14, 63, 33, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+        header .icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .page-display {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        #page-image {
+            max-width: 100%;
+            max-height: 60vh;
+            border-radius: 10px;
+            border: 3px solid #FFEB3B;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .nav-button {
+            background-color: #FFC107;
+            border: none;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .nav-button:hover {
+            background-color: #ffb300;
+            transform: scale(1.05);
+        }
+        .nav-button:disabled {
+            background-color: #777;
+            cursor: not-allowed;
+        }
+        #page-number {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flipbook-container">
+        <header>
+            <i class="fas fa-arrow-left icon" onclick="history.back()"></i>
+            <h1>e-Flipbook</h1>
+            <i class="fas fa-user-circle icon"></i>
+        </header>
+        <div class="page-display">
+            <img id="page-image" src="assets/pdf/1.png" alt="Halaman e-Flipbook">
+        </div>
+        <div class="navigation">
+            <button id="prev-btn" class="nav-button">Sebelumnya</button>
+            <span id="page-number">Halaman 1 / 39</span>
+            <button id="next-btn" class="nav-button">Selanjutnya</button>
+        </div>
+    </div>
+
+    <script>
+        const totalPages = 39;
+        let currentPage = 1;
+
+        const pageImage = document.getElementById('page-image');
+        const pageNumber = document.getElementById('page-number');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function updatePage() {
+            pageImage.src = `assets/pdf/${currentPage}.png`;
+            pageNumber.textContent = `Halaman ${currentPage} / ${totalPages}`;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        // Initialize
+        updatePage();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientasi Masalah - BIOVERS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bghijaudaunkanan.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .mobile-container {
+            width: 100%;
+            max-width: 420px;
+            height: 95vh;
+            max-height: 800px;
+            background-color: #0c3a1e;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            flex-shrink: 0;
+        }
+        header h1 {
+            font-size: 22px;
+        }
+        .icon { font-size: 24px; cursor: pointer; }
+        main {
+            padding: 0 20px 20px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .instruction-box {
+            background-color: #2f613c;
+            color: #e2eab9;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .journal-button {
+            background-color: #3b5a7a;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .journal-button:hover { background-color: #4a6e8a; }
+        .data-card {
+            background-color: white;
+            color: #a0a0a0;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            font-size: 18px;
+        }
+        footer {
+            padding: 15px 20px;
+            background-color: #0c3a1e;
+        }
+        .input-area {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 12px;
+            padding: 8px 15px;
+        }
+        .input-area input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        .input-area .icon { color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <header>
+            <i class="fas fa-arrow-left icon" onclick="history.back()"></i>
+            <h1>Orientasi</h1>
+            <i class="fas fa-user-circle icon"></i>
+        </header>
+        <main>
+            <div class="instruction-box">
+                <ul>
+                    <li>Bersama teman sekelompok diskusikan isu terkait permasalahan menurunnya jumlah keanekaragaman hayati hingga terancam punah pada artikel yang sudah disediakan!</li>
+                    <li>Tulislah permasalahan yang muncul sebanyak mungkin mengenai menurunnya keanekaragaman hayati di kolom yang sudah disediakan.</li>
+                </ul>
+            </div>
+            <button class="journal-button" onclick="window.open('assets/jurnal_iwak.pdf', '_blank')">
+                Buka Jurnal Spesies Ikan Terancam Punah
+            </button>
+            <div class="data-card">
+                <p>Jurnal akan terbuka di tab baru.</p>
+            </div>
+        </main>
+        <footer>
+            <div class="input-area">
+                <input type="text" placeholder="Tulis rumusan masalah di sini...">
+                <i class="fas fa-paper-plane icon"></i>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

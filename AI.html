@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence - BIOVERS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bgkupukupu.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .ai-container {
+            width: 100%;
+            max-width: 420px;
+            background-color: rgba(14, 63, 33, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        header h1 {
+            font-size: 24px;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .icon { font-size: 24px; cursor: pointer; }
+        .instruction-box {
+            background-color: rgba(47, 97, 60, 0.85);
+            color: #e2eab9;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        #ai-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #FFC107;
+            font-size: 16px;
+            background-color: white;
+            text-align: center;
+        }
+        .result-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border-radius: 15px;
+            min-height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+        .ai-button {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 50px;
+            border: none;
+            background-color: #176B87;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #clear-btn {
+            background-color: #6c757d;
+        }
+        #clear-btn:hover {
+            background-color: #5a6268;
+        }
+        #submit-btn:hover {
+            background-color: #1f85a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="ai-container">
+        <header>
+            <i class="fas fa-arrow-left icon" onclick="history.back()"></i>
+            <h1>Artificial Intelligence</h1>
+            <i class="fas fa-user-circle icon"></i>
+        </header>
+        <div class="instruction-box">
+            - Masukkan contoh keanekaragaman untuk mengidentifikasi jenis atau tingkatannya.<br>
+            - Klik 'Tampilkan' untuk mengetahui hasilnya.<br>
+            - Klik 'Bersihkan' untuk menghapus input dan memasukkan input lain.
+        </div>
+        <input type="text" id="ai-input" placeholder="Contoh: Harimau, Mawar, Hutan Hujan">
+        <div class="result-box" id="ai-result">
+            <p>Cek Selengkapnya</p>
+        </div>
+        <div class="button-group">
+            <button id="submit-btn" class="ai-button">Tampilkan</button>
+            <button id="clear-btn" class="ai-button">Bersihkan</button>
+        </div>
+    </div>
+
+    <script>
+        const aiResponses = {
+            "harimau": "<strong>Hasil Analisis AI:</strong><br>Harimau (<em>Panthera tigris</em>) adalah contoh <strong>keanekaragaman tingkat spesies</strong>. Ia berbeda dengan singa (<em>Panthera leo</em>) meskipun masih dalam genus yang sama.",
+            "mawar": "<strong>Hasil Analisis AI:</strong><br>Bunga mawar memiliki banyak variasi warna (merah, putih, kuning). Ini adalah contoh <strong>keanekaragaman tingkat gen</strong> dalam satu spesies (<em>Rosa sp.</em>).",
+            "hutan hujan": "<strong>Hasil Analisis AI:</strong><br>Hutan hujan adalah contoh <strong>keanekaragaman tingkat ekosistem</strong>. Di dalamnya terdapat interaksi antara berbagai makhluk hidup (pohon, serangga, mamalia) dengan lingkungan abiotik (tanah, air, iklim)."
+        };
+
+        const aiInput = document.getElementById('ai-input');
+        const aiResult = document.getElementById('ai-result');
+        const submitBtn = document.getElementById('submit-btn');
+        const clearBtn = document.getElementById('clear-btn');
+
+        submitBtn.addEventListener('click', () => {
+            const query = aiInput.value.toLowerCase().trim();
+            if (query in aiResponses) {
+                aiResult.innerHTML = aiResponses[query];
+            } else if (query === "") {
+                aiResult.innerHTML = "<p>Silakan masukkan contoh terlebih dahulu.</p>";
+            } else {
+                aiResult.innerHTML = `<p>Maaf, AI belum dapat mengenali '${query}'. Coba contoh lain seperti 'harimau', 'mawar', atau 'hutan hujan'.</p>`;
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            aiInput.value = "";
+            aiResult.innerHTML = "<p>Cek Selengkapnya</p>";
+        });
+    </script>
+</body>
+</html>
